@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Feliz Cumpleaños</title>
+
+<style>
+
+body{
+    margin:0;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial,sans-serif;
+    color:white;
+    text-align:center;
+}
+
+.carta{
+    padding:30px;
+    max-width:500px;
+}
+
+button{
+    padding:15px 25px;
+    border:none;
+    border-radius:10px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+#mensaje{
+    display:none;
+    margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="carta">
+
+<h1>🎂 Feliz Cumpleaños 🎂</h1>
+
+<p>Tengo algo para ti...</p>
+
+<button onclick="abrirCarta()">
+❤️ Abrir
+</button>
+
+<div id="mensaje">
+
+<h2>Para ti</h2>
+
+<p>
+Aunque ya no hablemos,
+quería tomarme un momento para desearte un feliz cumpleaños.
+Espero que hoy recibas muchas razones para sonreír.
+</p>
+
+<p>
+Que tengas un día maravilloso.
+✨
+</p>
+
+</div>
+
+</div>
+
+<script>
+function abrirCarta(){
+    document.getElementById("mensaje").style.display="block";
+}
+</script>
+
+</body>
+</html>
