@@ -4,78 +4,209 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Feliz Cumpleaños</title>
+<title>Para Yaneth ✨</title>
 
 <style>
 
-body{
+*{
     margin:0;
-    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
     height:100vh;
+    font-family:Georgia, serif;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
     display:flex;
     justify-content:center;
     align-items:center;
-    font-family:Arial,sans-serif;
     color:white;
-    text-align:center;
 }
 
-.carta{
-    padding:30px;
-    max-width:500px;
+.container{
+    text-align:center;
+    z-index:2;
+    padding:20px;
+}
+
+h1{
+    font-size:2.2rem;
+    margin-bottom:20px;
+}
+
+p{
+    margin-bottom:20px;
+    opacity:0.9;
 }
 
 button{
-    padding:15px 25px;
+    padding:12px 25px;
     border:none;
-    border-radius:10px;
-    font-size:18px;
+    border-radius:12px;
     cursor:pointer;
+    font-size:1rem;
+    background:white;
 }
 
-#mensaje{
+#sobre{
     display:none;
-    margin-top:20px;
+    font-size:120px;
+    cursor:pointer;
+    animation:flotar 2s ease-in-out infinite;
+}
+
+#carta{
+    display:none;
+    max-width:650px;
+    background:rgba(255,255,255,0.95);
+    color:#222;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 0 30px rgba(255,255,255,0.2);
+    line-height:1.8;
+}
+
+#tituloCarta{
+    margin-bottom:20px;
+}
+
+.corazon{
+    position:absolute;
+    font-size:20px;
+    animation:subir linear infinite;
+    opacity:.7;
+}
+
+@keyframes subir{
+    from{
+        transform:translateY(100vh);
+    }
+    to{
+        transform:translateY(-120px);
+    }
+}
+
+@keyframes flotar{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0);}
+}
+
+.fade{
+    animation:fade 1.5s;
+}
+
+@keyframes fade{
+    from{opacity:0;}
+    to{opacity:1;}
 }
 
 </style>
 </head>
-
 <body>
 
-<div class="carta">
+<div id="hearts"></div>
 
-<h1>🎂 Feliz Cumpleaños 🎂</h1>
+<div class="container fade" id="inicio">
 
-<p>Tengo algo para ti...</p>
+<h1>✨ Hay algo para ti ✨</h1>
 
-<button onclick="abrirCarta()">
-❤️ Abrir
+<p>
+No es un regalo envuelto,
+ni algo que pueda guardarse en una caja.
+</p>
+
+<button onclick="mostrarSobre()">
+Abrir regalo 🎁
 </button>
 
-<div id="mensaje">
-
-<h2>Para ti</h2>
-
-<p>
-Aunque ya no hablemos,
-quería tomarme un momento para desearte un feliz cumpleaños.
-Espero que hoy recibas muchas razones para sonreír.
-</p>
-
-<p>
-Que tengas un día maravilloso.
-✨
-</p>
-
 </div>
+
+<div id="sobre" onclick="abrirCarta()">
+✉️
+</div>
+
+<div id="carta">
+
+<h2 id="tituloCarta">Feliz cumpleaños, Yaneth 🎂</h2>
+
+<p>
+Quizás no esperabas encontrar esto hoy.
+</p>
+
+<p>
+La vida tiene una forma curiosa de mover a las personas.
+A veces las acerca, a veces las aleja,
+y otras simplemente deja recuerdos que siguen acompañándonos
+aunque el tiempo pase.
+</p>
+
+<p>
+Hoy no quería dejar pasar la fecha sin desearte algo bueno.
+Porque, más allá de todo,
+hay personas que dejan una huella especial
+y merecen ser recordadas con cariño.
+</p>
+
+<p>
+Espero que este nuevo año de vida te traiga momentos que valgan la pena,
+sonrisas sinceras,
+nuevos sueños,
+y la tranquilidad de saber que eres una persona importante
+para más gente de la que imaginas.
+</p>
+
+<p>
+No sé qué deseos hayas pedido hoy,
+pero espero que algunos de ellos encuentren el camino para hacerse realidad.
+</p>
+
+<p>
+Y entre tantas felicitaciones,
+quería que hubiera una diferente:
+una hecha con tiempo,
+con recuerdos,
+y con la intención de regalarte una pequeña sorpresa.
+</p>
+
+<p>
+✨ Feliz cumpleaños, Yaneth. ✨
+</p>
+
+<p style="margin-top:25px;">
+Con cariño ❤️
+</p>
 
 </div>
 
 <script>
-function abrirCarta(){
-    document.getElementById("mensaje").style.display="block";
+
+function mostrarSobre(){
+    document.getElementById("inicio").style.display="none";
+    document.getElementById("sobre").style.display="block";
 }
+
+function abrirCarta(){
+    document.getElementById("sobre").style.display="none";
+    document.getElementById("carta").style.display="block";
+}
+
+for(let i=0;i<35;i++){
+
+    let heart=document.createElement("div");
+
+    heart.className="corazon";
+    heart.innerHTML="❤️";
+
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(5+Math.random()*8)+"s";
+    heart.style.fontSize=(15+Math.random()*20)+"px";
+
+    document.body.appendChild(heart);
+}
+
 </script>
 
 </body>
