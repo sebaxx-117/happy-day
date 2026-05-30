@@ -15,14 +15,16 @@
 }
 
 body{
-    overflow:hidden;
-    height:100vh;
+    min-height:100vh;
     font-family:Georgia, serif;
     background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:white;
+    overflow-y:auto;
+    overflow-x:hidden;
     display:flex;
     justify-content:center;
     align-items:center;
-    color:white;
+    padding:20px;
 }
 
 .container{
@@ -59,14 +61,8 @@ button{
 
 #carta{
     display:none;
+    width:95%;
     max-width:650px;
-    background:rgba(255,255,255,0.95);
-    color:#222;
-    padding:35px;
-    border-radius:20px;
-    box-shadow:0 0 30px rgba(255,255,255,0.2);
-    line-height:1.8;
-}
 
 #tituloCarta{
     margin-bottom:20px;
@@ -192,8 +188,14 @@ function mostrarSobre(){
 function abrirCarta(){
     document.getElementById("sobre").style.display="none";
     document.getElementById("carta").style.display="block";
-}
 
+    setTimeout(()=>{
+        document.getElementById("carta").scrollIntoView({
+            behavior:"smooth"
+        });
+    },200);
+}
+    
 for(let i=0;i<35;i++){
 
     let heart=document.createElement("div");
